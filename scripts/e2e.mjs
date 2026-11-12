@@ -276,10 +276,14 @@ try {
       href: a.href,
       target: a.target,
       rel: a.rel.split(/\s+/).sort().join(" "),
-      noteShown:
-        getComputedStyle(document.querySelector(".contact__note")).display !==
-        "none",
     }));
+    // The old "link not set" placeholder must be gone from the source itself,
+    // not just hidden by CSS (page source, reader mode and previews show it).
+    const source = await (await fetch(server.url)).text();
+    check(
+      "Contact: no placeholder text left in the page source",
+      !source.includes("ยังไม่ได้ใส่ลิงก์") && !source.includes('class="fill"'),
+    );
     await page.evaluate(() => {
       document.addEventListener(
         "click",
@@ -299,8 +303,7 @@ try {
       link.href === FASTWORK_URL &&
         clicked?.href === FASTWORK_URL &&
         clicked?.target === "_blank" &&
-        link.rel === "noopener noreferrer" &&
-        !link.noteShown,
+        link.rel === "noopener noreferrer",
       `${clicked?.href} target=${clicked?.target} rel="${link.rel}"`,
     );
     const navContact = await page.$eval('.nav__links a[href="#contact"]', (a) =>

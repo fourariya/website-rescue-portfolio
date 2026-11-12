@@ -2,6 +2,8 @@
 
 An interactive before/after portfolio demo for a freelance **website maintenance** service (bug fixing, responsive fixing and UI improvement), written for Thai customers on Fastwork.
 
+**Live demo:** <https://silver-dusk-a7ecee.netlify.app/>
+
 > **Demonstration project.** "Sabai Move Studio" is a fictional business made for this demo. Nothing here is a real client, a real result or a measured improvement.
 
 ## What it shows
@@ -86,13 +88,15 @@ Images 02 to 05 are compositions of real captures laid out in the portfolio's st
 
 ## Configuration
 
-**Fastwork link:** the contact CTA in `site/index.html` (marked with a `CONFIG` comment) points to `https://fastwork.com/user/four` and opens in a new tab. To change it, edit that `href` and the `FASTWORK_URL` constant in `scripts/e2e.mjs`, which checks it. If the `href` is ever reset to `#contact`, a dashed note under the button shows that the link is not set.
+**Fastwork link:** the contact CTA in `site/index.html` (marked with a `CONFIG` comment) points to `https://fastwork.com/user/four` and opens in a new tab. To change it, edit that `href` and the `FASTWORK_URL` constant in `scripts/e2e.mjs`, which checks it.
 
 ## Deploy to Netlify (manual drag and drop)
 
 1. Run `npm run check` and `npm run test:e2e`.
 2. Go to <https://app.netlify.com/drop>.
 3. Drag the **`site`** folder (not the project root) onto the page.
+
+To update the existing live site rather than create a new one, open it in the Netlify dashboard, go to **Deploys**, and drag the `site` folder onto the drop area there.
 
 `site/` holds everything the website needs and nothing else, so `node_modules`, scripts and screenshots never get uploaded.
 

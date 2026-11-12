@@ -1097,19 +1097,9 @@ h2:focus {
 }
 
 .contact__note {
-  display: none;
+  max-width: 44ch;
   font-size: var(--text-sm);
-}
-
-[data-fastwork-link][href="#contact"] ~ .contact__note {
-  display: block;
-}
-
-.fill {
-  padding: 0 0.25em;
-  border: 1px dashed var(--color-muted);
   color: var(--color-muted);
-  box-decoration-break: clone;
 }
 
 /* ---------- Footer ---------- */
