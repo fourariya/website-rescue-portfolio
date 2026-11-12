@@ -3,6 +3,7 @@
 // itself has no console errors, no horizontal overflow and working controls.
 import { launch, serveSite, settle } from "./lib/browser.mjs";
 
+const FASTWORK_URL = "https://fastwork.com/user/four";
 const results = [];
 function check(name, ok, detail = "") {
   results.push({ name, ok, detail });
@@ -269,14 +270,46 @@ try {
       `${yBefore} -> ${yAfter}`,
     );
 
-    const fastwork = await page.$eval("[data-fastwork-link]", (a) =>
-      a.getAttribute("href"),
-    );
-    if (fastwork === "#contact") {
-      console.log(
-        "NOTE  Contact: Fastwork link is still the placeholder; set your URL before publishing",
+    // Contact CTA: a real click must target the Fastwork profile in a new tab.
+    // The navigation itself is cancelled so the test makes no external request.
+    const link = await page.$eval("[data-fastwork-link]", (a) => ({
+      href: a.href,
+      target: a.target,
+      rel: a.rel.split(/\s+/).sort().join(" "),
+      noteShown:
+        getComputedStyle(document.querySelector(".contact__note")).display !==
+        "none",
+    }));
+    await page.evaluate(() => {
+      document.addEventListener(
+        "click",
+        (event) => {
+          const a = event.target.closest("[data-fastwork-link]");
+          if (!a) return;
+          window.__ctaClick = { href: a.href, target: a.target };
+          event.preventDefault();
+        },
+        { capture: true, once: true },
       );
-    }
+    });
+    await page.click("[data-fastwork-link]");
+    const clicked = await page.evaluate(() => window.__ctaClick ?? null);
+    check(
+      "Contact: CTA clicks through to the Fastwork profile in a new tab",
+      link.href === FASTWORK_URL &&
+        clicked?.href === FASTWORK_URL &&
+        clicked?.target === "_blank" &&
+        link.rel === "noopener noreferrer" &&
+        !link.noteShown,
+      `${clicked?.href} target=${clicked?.target} rel="${link.rel}"`,
+    );
+    const navContact = await page.$eval('.nav__links a[href="#contact"]', (a) =>
+      a.getAttribute("target"),
+    );
+    check(
+      "Contact: nav 'ติดต่อ' still scrolls to the in-page section",
+      navContact === null,
+    );
     await page.close();
   }
 } finally {

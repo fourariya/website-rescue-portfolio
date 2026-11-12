@@ -30,3 +30,4 @@ desktop.ini
 .hallmark/
 # Impeccable hook cache (.impeccable/config.json is shared and committed)
 .impeccable/hook.cache.json
+.claude/settings.local.json

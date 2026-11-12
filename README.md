@@ -23,7 +23,7 @@ Both versions are real pages in `site/demo/` and run inside iframes on the portf
 | "Try these" guide       | Showcase                      | Four steps to reproduce each bug, with the expected Before and After result                                                                       |
 | Fix breakdown           | Six tabs (arrow-key tablist)  | For each issue: problem, cause, fix, result in plain Thai, plus an expandable code diff and a button that opens the showcase in the right state   |
 | Services                | Price table on the warm sheet | Bug Fix ฿800, Responsive Fix ฿1,500, UI Improvement ฿2,500 (starting prices)                                                                      |
-| Process and contact     | Five stages; contact band     | The Fastwork link is a marked placeholder (see Configuration)                                                                                     |
+| Process and contact     | Five stages; contact band     | The CTA opens the Fastwork profile in a new tab (see Configuration)                                                                               |
 
 ## Issues demonstrated
 
@@ -86,11 +86,11 @@ Images 02 to 05 are compositions of real captures laid out in the portfolio's st
 
 ## Configuration
 
-**Fastwork link:** in `site/index.html`, find the `CONFIG` comment in the contact section and replace `href="#contact"` with your Fastwork profile or gig URL. Until you do, a dashed note under the button says the link isn't set.
+**Fastwork link:** the contact CTA in `site/index.html` (marked with a `CONFIG` comment) points to `https://fastwork.com/user/four` and opens in a new tab. To change it, edit that `href` and the `FASTWORK_URL` constant in `scripts/e2e.mjs`, which checks it. If the `href` is ever reset to `#contact`, a dashed note under the button shows that the link is not set.
 
 ## Deploy to Netlify (manual drag and drop)
 
-1. Set the Fastwork link (above) and run `npm run check` and `npm run test:e2e`.
+1. Run `npm run check` and `npm run test:e2e`.
 2. Go to <https://app.netlify.com/drop>.
 3. Drag the **`site`** folder (not the project root) onto the page.
 
