@@ -1,0 +1,164 @@
+<!doctype html>
+<!--
+  DEMO ONLY: the BEFORE state of a fictional business ("Sabai Move Studio").
+  This page is intentionally broken for the Website Rescue portfolio.
+  The bugs are documented in README.md. Do not reuse this code.
+-->
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sabai Move Studio (Before)</title>
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">Sabai Move <span>Studio</span></div>
+      <div class="hamburger">&#9776;</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#classes">คลาสเรียน</a></li>
+        <li><a href="#schedule">ตารางเรียน</a></li>
+        <li><a href="#packages">แพ็กเกจ</a></li>
+        <li><a href="#contact">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>ยินดีต้อนรับสู่ Sabai Move Studio</h1>
+          <p class="sub">
+            สตูดิโอโยคะ พิลาทิส และคลาสยืดเหยียด สำหรับทุกคนที่อยากขยับร่างกาย
+            คลาสกลุ่มเล็ก บรรยากาศสบาย ๆ เหมาะทั้งมือใหม่และคนที่เล่นมาแล้ว
+            มาลองเรียนกับเราได้ทุกวัน
+          </p>
+          <a href="#schedule" class="btn-main">ดูตารางคลาส</a>
+        </div>
+        <div class="promo">
+          <b>NEW!!</b> ทดลองเรียนครั้งแรก<br />ลดพิเศษ สอบถามได้เลย
+        </div>
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="section" id="classes">
+        <h2>คลาสของเรา</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Yoga Flow</h3>
+            <p>
+              โยคะแบบต่อเนื่องตามจังหวะลมหายใจ ช่วยเรื่องความยืดหยุ่นและสมาธิ
+            </p>
+            <a class="more">อ่านต่อ...</a>
+          </div>
+          <div class="card">
+            <h3>Mat Pilates</h3>
+            <p>เสริมแกนกลางลำตัวบนเสื่อ ปรับท่าทางและการทรงตัว</p>
+            <a class="more">อ่านต่อ...</a>
+          </div>
+          <div class="card">
+            <h3>Stretch &amp; Relax</h3>
+            <p>ยืดเหยียดช้า ๆ คลายกล้ามเนื้อหลังเลิกงาน</p>
+            <a class="more">อ่านต่อ...</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="schedule">
+        <h2>ตารางเรียนประจำสัปดาห์</h2>
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+          <button class="filter-btn" data-filter="Yoga">Yoga</button>
+          <button class="filter-btn" data-filter="Pilates">Pilates</button>
+          <button class="filter-btn" data-filter="Stretch">Stretch</button>
+        </div>
+        <table class="schedule">
+          <tr>
+            <th>วัน</th>
+            <th>เวลา</th>
+            <th>คลาส</th>
+            <th>ระดับ</th>
+          </tr>
+          <tr class="class-item" data-category="yoga">
+            <td>จันทร์</td>
+            <td>07:00</td>
+            <td>Yoga Flow</td>
+            <td>ทุกระดับ</td>
+          </tr>
+          <tr class="class-item" data-category="pilates">
+            <td>จันทร์</td>
+            <td>18:30</td>
+            <td>Mat Pilates</td>
+            <td>เริ่มต้น</td>
+          </tr>
+          <tr class="class-item" data-category="stretch">
+            <td>อังคาร</td>
+            <td>19:00</td>
+            <td>Stretch &amp; Relax</td>
+            <td>ทุกระดับ</td>
+          </tr>
+          <tr class="class-item" data-category="yoga">
+            <td>พุธ</td>
+            <td>18:00</td>
+            <td>Yoga Flow</td>
+            <td>กลาง</td>
+          </tr>
+          <tr class="class-item" data-category="pilates">
+            <td>พฤหัสบดี</td>
+            <td>07:30</td>
+            <td>Mat Pilates</td>
+            <td>กลาง</td>
+          </tr>
+          <tr class="class-item" data-category="stretch">
+            <td>ศุกร์</td>
+            <td>18:30</td>
+            <td>Stretch &amp; Relax</td>
+            <td>เริ่มต้น</td>
+          </tr>
+          <tr class="class-item" data-category="yoga">
+            <td>เสาร์</td>
+            <td>09:00</td>
+            <td>Yoga Flow</td>
+            <td>เริ่มต้น</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="section" id="packages">
+        <h2 class="title2">แพ็กเกจราคา</h2>
+        <div class="pack-row">
+          <div class="pack">
+            <h4>Drop-in</h4>
+            <div class="price">350 บาท</div>
+            <p>เรียน 1 ครั้ง</p>
+            <a class="btn-buy">สมัคร</a>
+          </div>
+          <div class="pack pop">
+            <h3>แพ็กเกจ 5 ครั้ง</h3>
+            <div class="price big">&#3647;1,500</div>
+            <p>ใช้ได้ภายใน 2 เดือน เหมาะกับคนที่เริ่มเรียนสม่ำเสมอ</p>
+            <button class="btn2">ซื้อเลย!!</button>
+          </div>
+          <div class="pack">
+            <h4>10 ครั้ง</h4>
+            <p class="price">2800.-</p>
+            <p>ใช้ได้ภายใน 4 เดือน</p>
+            <a href="#" class="link">คลิกที่นี่</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer" id="contact">
+        <p>
+          Sabai Move Studio | ที่อยู่ตัวอย่างสำหรับการสาธิต | โทร 02-000-0000 |
+          hello@example.com
+        </p>
+        <p class="copy">
+          Copyright 2019 All rights reserved. (ธุรกิจสมมติสำหรับการสาธิต)
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

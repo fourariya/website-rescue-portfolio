@@ -1,0 +1,32 @@
+# ---- Node ----
+node_modules/
+dist/
+coverage/
+
+# ---- Secrets and client data: never commit ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+client-data/
+
+# ---- Browser automation output ----
+.playwright-mcp/
+playwright-report/
+test-results/
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# ---- Local design-tool state (per machine) ----
+# Hallmark build log, salt and render screenshots
+.hallmark/
+# Impeccable hook cache (.impeccable/config.json is shared and committed)
+.impeccable/hook.cache.json

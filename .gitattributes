@@ -1,0 +1,29 @@
+# Line endings: store LF in Git and check out LF on every OS.
+# Per-repo rules here override the global core.autocrlf setting.
+* text=auto eol=lf
+
+# Windows-only scripts keep CRLF so cmd/PowerShell run them correctly.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Binary files: no line-ending conversion, no text diff.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.eot binary
+*.mp3 binary
+*.mp4 binary
+*.webm binary
+*.zip binary
+*.xlsx binary
+*.docx binary

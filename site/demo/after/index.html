@@ -1,0 +1,271 @@
+<!doctype html>
+<!--
+  DEMO ONLY: the AFTER state of a fictional business ("Sabai Move Studio"),
+  built for the Website Rescue portfolio. Same content as ../before/.
+-->
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sabai Move Studio (After)</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="app.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+    <header class="site-header">
+      <div class="container header-row">
+        <a class="logo" href="#top" aria-label="Sabai Move Studio หน้าแรก"
+          >Sabai Move</a
+        >
+        <button
+          class="menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-menu"
+          data-menu-button
+        >
+          <span class="menu-icon" aria-hidden="true"></span>
+          เมนู
+        </button>
+        <nav
+          class="site-nav"
+          id="site-menu"
+          aria-label="เมนูหลัก"
+          data-open="false"
+        >
+          <a href="#classes">คลาสเรียน</a>
+          <a href="#schedule">ตารางเรียน</a>
+          <a href="#packages">แพ็กเกจ</a>
+          <a href="#contact">ติดต่อเรา</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" tabindex="-1">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>โยคะและพิลาทิส<br />คลาสกลุ่มเล็ก</h1>
+            <p class="hero-lead">
+              คลาสสำหรับมือใหม่และคนที่เล่นมาแล้ว เลือกเวลาที่สะดวกได้ทุกวัน
+            </p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#schedule">ดูตารางคลาส</a>
+              <a class="btn btn-secondary" href="#packages">ดูแพ็กเกจ</a>
+            </div>
+          </div>
+          <aside class="next-up" aria-labelledby="next-up-title">
+            <h2 id="next-up-title">คลาสถัดไป</h2>
+            <ul>
+              <li>
+                <span class="time">07:00</span>
+                <span><strong>Yoga Flow</strong><br />จันทร์ ทุกระดับ</span>
+              </li>
+              <li>
+                <span class="time">18:30</span>
+                <span><strong>Mat Pilates</strong><br />จันทร์ เริ่มต้น</span>
+              </li>
+              <li>
+                <span class="time">19:00</span>
+                <span
+                  ><strong>Stretch &amp; Relax</strong><br />อังคาร
+                  ทุกระดับ</span
+                >
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="classes"
+        tabindex="-1"
+        aria-labelledby="classes-title"
+      >
+        <div class="container">
+          <h2 id="classes-title">คลาสของเรา</h2>
+          <div class="class-grid">
+            <article class="class-card">
+              <h3>Yoga Flow</h3>
+              <p>
+                โยคะแบบต่อเนื่องตามจังหวะลมหายใจ ช่วยเรื่องความยืดหยุ่นและสมาธิ
+              </p>
+            </article>
+            <article class="class-card">
+              <h3>Mat Pilates</h3>
+              <p>เสริมแกนกลางลำตัวบนเสื่อ ปรับท่าทางและการทรงตัว</p>
+            </article>
+            <article class="class-card">
+              <h3>Stretch &amp; Relax</h3>
+              <p>ยืดเหยียดช้า ๆ คลายกล้ามเนื้อหลังเลิกงาน</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-tint"
+        id="schedule"
+        tabindex="-1"
+        aria-labelledby="schedule-title"
+      >
+        <div class="container">
+          <div class="schedule-head">
+            <h2 id="schedule-title">ตารางเรียนประจำสัปดาห์</h2>
+            <p class="result-count" data-result-count role="status">
+              แสดง 7 คลาส
+            </p>
+          </div>
+          <div class="filters" role="group" aria-label="กรองตามประเภทคลาส">
+            <button
+              type="button"
+              class="chip"
+              data-filter="all"
+              aria-pressed="true"
+            >
+              ทั้งหมด
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filter="Yoga"
+              aria-pressed="false"
+            >
+              Yoga
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filter="Pilates"
+              aria-pressed="false"
+            >
+              Pilates
+            </button>
+            <button
+              type="button"
+              class="chip"
+              data-filter="Stretch"
+              aria-pressed="false"
+            >
+              Stretch
+            </button>
+          </div>
+          <table class="schedule">
+            <thead>
+              <tr>
+                <th scope="col">วัน</th>
+                <th scope="col">เวลา</th>
+                <th scope="col">คลาส</th>
+                <th scope="col">ระดับ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-category="yoga">
+                <td data-label="วัน">จันทร์</td>
+                <td data-label="เวลา">07:00</td>
+                <th scope="row" data-label="คลาส">Yoga Flow</th>
+                <td data-label="ระดับ">ทุกระดับ</td>
+              </tr>
+              <tr data-category="pilates">
+                <td data-label="วัน">จันทร์</td>
+                <td data-label="เวลา">18:30</td>
+                <th scope="row" data-label="คลาส">Mat Pilates</th>
+                <td data-label="ระดับ">เริ่มต้น</td>
+              </tr>
+              <tr data-category="stretch">
+                <td data-label="วัน">อังคาร</td>
+                <td data-label="เวลา">19:00</td>
+                <th scope="row" data-label="คลาส">Stretch &amp; Relax</th>
+                <td data-label="ระดับ">ทุกระดับ</td>
+              </tr>
+              <tr data-category="yoga">
+                <td data-label="วัน">พุธ</td>
+                <td data-label="เวลา">18:00</td>
+                <th scope="row" data-label="คลาส">Yoga Flow</th>
+                <td data-label="ระดับ">กลาง</td>
+              </tr>
+              <tr data-category="pilates">
+                <td data-label="วัน">พฤหัสบดี</td>
+                <td data-label="เวลา">07:30</td>
+                <th scope="row" data-label="คลาส">Mat Pilates</th>
+                <td data-label="ระดับ">กลาง</td>
+              </tr>
+              <tr data-category="stretch">
+                <td data-label="วัน">ศุกร์</td>
+                <td data-label="เวลา">18:30</td>
+                <th scope="row" data-label="คลาส">Stretch &amp; Relax</th>
+                <td data-label="ระดับ">เริ่มต้น</td>
+              </tr>
+              <tr data-category="yoga">
+                <td data-label="วัน">เสาร์</td>
+                <td data-label="เวลา">09:00</td>
+                <th scope="row" data-label="คลาส">Yoga Flow</th>
+                <td data-label="ระดับ">เริ่มต้น</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section
+        class="section"
+        id="packages"
+        tabindex="-1"
+        aria-labelledby="packages-title"
+      >
+        <div class="container">
+          <h2 id="packages-title">แพ็กเกจราคา</h2>
+          <div class="package-grid">
+            <article class="package">
+              <h3>Drop-in</h3>
+              <p class="price">฿350</p>
+              <p>เรียน 1 ครั้ง</p>
+              <a class="btn btn-secondary" href="#contact">สอบถามแพ็กเกจนี้</a>
+            </article>
+            <article class="package package-featured">
+              <h3>5 ครั้ง <span class="tag">แนะนำ</span></h3>
+              <p class="price">฿1,500</p>
+              <p>ใช้ได้ภายใน 2 เดือน เหมาะกับคนที่เริ่มเรียนสม่ำเสมอ</p>
+              <a class="btn btn-primary" href="#contact">สอบถามแพ็กเกจนี้</a>
+            </article>
+            <article class="package">
+              <h3>10 ครั้ง</h3>
+              <p class="price">฿2,800</p>
+              <p>ใช้ได้ภายใน 4 เดือน</p>
+              <a class="btn btn-secondary" href="#contact">สอบถามแพ็กเกจนี้</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact" tabindex="-1">
+      <div class="container footer-grid">
+        <div>
+          <p class="logo">Sabai Move</p>
+          <p>ที่อยู่ตัวอย่างสำหรับการสาธิต</p>
+        </div>
+        <dl class="contact-list">
+          <div>
+            <dt>โทร</dt>
+            <dd>02-000-0000</dd>
+          </div>
+          <div>
+            <dt>อีเมล</dt>
+            <dd>hello@example.com</dd>
+          </div>
+        </dl>
+        <p class="footer-note">ธุรกิจสมมติสำหรับการสาธิต ไม่ใช่ร้านจริง</p>
+      </div>
+    </footer>
+  </body>
+</html>

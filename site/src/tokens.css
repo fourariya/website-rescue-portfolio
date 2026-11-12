@@ -1,0 +1,89 @@
+:root {
+  color-scheme: dark;
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 144px;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5625rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem);
+  --text-display: clamp(2.5rem, 3.3vw + 1rem, 4.75rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem);
+  --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem);
+  --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+  --container: 1440px;
+  --gutter: 64px;
+  --gap-columns: 32px;
+  --section-gap-s: 120px;
+  --section-gap: 144px;
+  --section-gap-l: 176px;
+  --nav-height: 64px;
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-sticky-nav: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+
+  /* Blueprint, recoloured: dark navy sheet, warm off-white line ink, electric blue signal */
+  --color-paper: oklch(22% 0.055 258);
+  --color-paper-2: oklch(19.5% 0.05 258);
+  --color-paper-3: oklch(16.5% 0.045 258);
+  --color-ink: oklch(96.5% 0.014 85);
+  --color-ink-2: oklch(90% 0.02 85);
+  --color-muted: oklch(80% 0.03 250);
+  --color-rule: oklch(94% 0.014 85 / 0.6);
+  --color-rule-2: oklch(94% 0.014 85 / 0.22);
+  --color-grid: oklch(96% 0.01 250 / 0.06);
+  --color-grid-2: oklch(96% 0.01 250 / 0.14);
+  --color-accent: oklch(70% 0.19 255);
+  --color-accent-hover: oklch(77% 0.15 252);
+  --color-accent-ink: oklch(17% 0.05 258);
+  --color-focus: oklch(74% 0.18 254);
+  --color-error: oklch(52% 0.19 27);
+  --color-success: oklch(50% 0.12 150);
+
+  /* The warm off-white sheet (whiteprint) for the price register */
+  --color-light-paper: oklch(96.5% 0.014 85);
+  --color-light-paper-2: oklch(93% 0.018 85);
+  --color-light-ink: oklch(22% 0.055 258);
+  --color-light-ink-2: oklch(30% 0.05 258);
+  --color-light-muted: oklch(44% 0.045 258);
+  --color-light-rule: oklch(22% 0.055 258 / 0.55);
+  --color-light-rule-2: oklch(22% 0.055 258 / 0.16);
+  --color-light-accent: oklch(50% 0.21 262);
+  --color-light-accent-ink: oklch(98% 0.01 85);
+
+  --font-display: "Chakra Petch", ui-sans-serif, sans-serif;
+  --font-body:
+    "IBM Plex Sans Thai", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-card: 0;
+  --radius-pill: 0;
+  --rule-hair: 1px;
+  --rule-heavy: 2px;
+  --shadow-card: none;
+  --tracking-display: -0.012em;
+  --display-weight: 600;
+  --sheet-inset: 20px;
+  --tick: 14px;
+}

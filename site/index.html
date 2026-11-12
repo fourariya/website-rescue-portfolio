@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website Rescue: แก้บั๊ก ปรับ Responsive และปรับ UI เว็บไซต์</title>
+    <meta
+      name="description"
+      content="โปรเจกต์สาธิตงานดูแลเว็บไซต์ เทียบเว็บก่อนและหลังแก้ไขได้จริง ทั้งการแก้บั๊ก JavaScript ปรับ Responsive และปรับ UI"
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+Thai:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script type="module" src="src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">ข้ามไปเนื้อหาหลัก</a>
+
+    <header class="nav">
+      <div class="container nav__row">
+        <a
+          class="wordmark"
+          href="#top"
+          aria-label="Website Rescue กลับขึ้นด้านบน"
+          >Website Rescue</a
+        >
+        <button
+          class="nav__toggle btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          data-nav-toggle
+        >
+          เมนู
+        </button>
+        <nav
+          class="nav__links"
+          id="nav-links"
+          aria-label="เมนูหลัก"
+          data-open="false"
+        >
+          <a href="#problems">ปัญหาที่แก้</a>
+          <a href="#showcase">Showcase</a>
+          <a href="#breakdown">Fix breakdown</a>
+          <a href="#services">แพ็กเกจ</a>
+          <a href="#process">ขั้นตอน</a>
+          <a class="nav__cta" href="#contact">ติดต่อ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="container hero__grid">
+          <div class="hero__text">
+            <h1 id="hero-title">Your website, reimagined.</h1>
+            <p class="lead">
+              แก้บั๊ก ปรับให้ใช้บนมือถือได้ และจัด UI ใหม่
+              ให้เว็บเดิมทำงานได้จริงทุกหน้าจอ
+            </p>
+            <div class="actions">
+              <a class="btn btn--primary" href="#showcase"
+                >Explore the Transformation</a
+              >
+              <a class="btn" href="#services">ดูแพ็กเกจและราคา</a>
+            </div>
+          </div>
+
+          <figure class="hero__figure">
+            <div class="dim dim--draw" aria-hidden="true">
+              <span class="dim__value"
+                ><span data-hero-width>1280</span>&nbsp;px</span
+              >
+            </div>
+            <div
+              class="compare frame"
+              data-compare
+              data-frame
+              data-vw="1280"
+              data-vh="900"
+            >
+              <div class="compare__layer" inert>
+                <iframe
+                  src="demo/before/"
+                  title="เว็บไซต์ตัวอย่างก่อนแก้ไข"
+                  scrolling="no"
+                  tabindex="-1"
+                ></iframe>
+              </div>
+              <div class="compare__layer compare__layer--after" inert>
+                <iframe
+                  src="demo/after/"
+                  title="เว็บไซต์ตัวอย่างหลังแก้ไข"
+                  scrolling="no"
+                  tabindex="-1"
+                ></iframe>
+              </div>
+              <span class="compare__tag">Before</span>
+              <span class="compare__tag compare__tag--after">After</span>
+              <span class="compare__line" aria-hidden="true"></span>
+              <input
+                class="compare__range"
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                aria-label="เลื่อนเส้นแบ่งเพื่อเทียบ Before กับ After"
+                data-compare-range
+              />
+            </div>
+            <figcaption>
+              เว็บไซต์ธุรกิจสมมติที่สร้างขึ้นเพื่อสาธิต
+              ลากเส้นแบ่งหรือกดปุ่มลูกศรเพื่อเทียบ
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="section problems"
+        id="problems"
+        aria-labelledby="problems-title"
+      >
+        <div class="container">
+          <div class="head head--split">
+            <h2 id="problems-title">Three ways a site breaks</h2>
+            <p class="lead">
+              ปัญหาที่พบบ่อยในเว็บธุรกิจมีสามกลุ่ม แต่ละกลุ่มต้องแก้คนละวิธี
+            </p>
+          </div>
+
+          <ul class="rows">
+            <li class="row">
+              <div class="row__text">
+                <h3>Bug Fix</h3>
+                <p>
+                  ปุ่ม ตัวกรอง หรือเมนูที่กดแล้วไม่ทำงาน
+                  ส่วนใหญ่เกิดจากโค้ดที่อ้างชื่อหรือค่าไม่ตรงกัน
+                </p>
+              </div>
+              <figure class="row__fig">
+                <pre
+                  class="code code--diff"
+                  tabindex="0"
+                ><code><span class="del">- item.getAttribute("data-category") === filter</span>
+<span class="ins">+ matchesCategory(item.dataset.category, filter)</span></code></pre>
+                <figcaption>
+                  บรรทัดจริงจากเดโม: ปุ่มส่งค่า “Yoga” แต่รายการเก็บค่า “yoga”
+                  จึงไม่มีรายการไหนตรงเลย
+                </figcaption>
+              </figure>
+            </li>
+
+            <li class="row">
+              <div class="row__text">
+                <h3>Responsive Fix</h3>
+                <p>
+                  หน้าเว็บที่ล้นจอ ต้องเลื่อนซ้ายขวา
+                  หรือตัวหนังสือเล็กจนอ่านไม่ออกบนมือถือ
+                </p>
+              </div>
+              <figure class="row__fig">
+                <div
+                  class="measure"
+                  role="img"
+                  aria-labelledby="measure-caption"
+                >
+                  <div class="measure__row">
+                    <span class="measure__label">กล่องเนื้อหาใน Before</span>
+                    <div class="dim">
+                      <span class="dim__value">1100&nbsp;px</span>
+                    </div>
+                  </div>
+                  <div class="measure__row">
+                    <span class="measure__label">หน้าจอมือถือ</span>
+                    <div class="measure__split">
+                      <div class="dim dim--screen">
+                        <span class="dim__value">375&nbsp;px</span>
+                      </div>
+                      <div class="dim dim--overflow">
+                        <span class="dim__value">ล้นจอ 725&nbsp;px</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <figcaption id="measure-caption">
+                  ค่าจริงจากเดโม: กล่องเนื้อหาถูกกำหนดกว้าง 1100 px ตายตัว
+                  บนจอกว้าง 375 px จึงล้นออกไป 725 px
+                </figcaption>
+              </figure>
+            </li>
+
+            <li class="row">
+              <div class="row__text">
+                <h3>UI Improvement</h3>
+                <p>
+                  เว็บที่ใช้งานได้แต่ดูไม่น่าเชื่อถือ เพราะสี ตัวอักษร
+                  และระยะห่างไม่เป็นระบบ
+                </p>
+              </div>
+              <figure class="row__fig">
+                <div class="pair">
+                  <div class="shot">
+                    <img
+                      src="assets/ui-before.png"
+                      width="2240"
+                      height="880"
+                      alt="ส่วนแพ็กเกจราคาเวอร์ชัน Before: การ์ดสูงไม่เท่ากัน ปุ่มสามแบบ ราคาเขียนสามรูปแบบ"
+                      loading="lazy"
+                    />
+                    <span class="shot__tag">Before</span>
+                  </div>
+                  <div class="shot">
+                    <img
+                      src="assets/ui-after.png"
+                      width="2240"
+                      height="880"
+                      alt="ส่วนแพ็กเกจราคาเวอร์ชัน After: การ์ดเท่ากัน ปุ่มแบบเดียว ราคารูปแบบเดียวกัน"
+                      loading="lazy"
+                    />
+                    <span class="shot__tag shot__tag--after">After</span>
+                  </div>
+                </div>
+                <figcaption>
+                  ภาพจากเดโมจริง ส่วนแพ็กเกจราคาก่อนและหลังจัดระบบ UI
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section
+        class="section showcase"
+        id="showcase"
+        aria-labelledby="showcase-title"
+        data-showcase
+        data-showing="before"
+      >
+        <div class="container">
+          <div class="head head--split">
+            <h2 id="showcase-title" tabindex="-1">
+              Try the broken version first
+            </h2>
+            <p class="lead">
+              ทั้งสองเวอร์ชันเป็นเว็บที่ทำงานจริง ลองกดปุ่มใน Before
+              แล้วสลับไปดู After
+            </p>
+          </div>
+
+          <div class="showcase__bar">
+            <fieldset class="seg">
+              <legend>เวอร์ชัน</legend>
+              <div class="seg__options">
+                <input
+                  type="radio"
+                  name="version"
+                  id="v-before"
+                  value="before"
+                  checked
+                />
+                <label for="v-before">Before</label>
+                <input type="radio" name="version" id="v-after" value="after" />
+                <label for="v-after">After</label>
+              </div>
+            </fieldset>
+            <fieldset class="seg">
+              <legend>หน้าจอ</legend>
+              <div class="seg__options">
+                <input
+                  type="radio"
+                  name="device"
+                  id="d-desktop"
+                  value="desktop"
+                  checked
+                />
+                <label for="d-desktop">Desktop</label>
+                <input
+                  type="radio"
+                  name="device"
+                  id="d-mobile"
+                  value="mobile"
+                />
+                <label for="d-mobile">Mobile</label>
+              </div>
+            </fieldset>
+            <p class="showcase__status" role="status" data-showcase-status>
+              กำลังแสดง Before บนหน้าจอ Desktop
+            </p>
+          </div>
+
+          <div class="showcase__grid">
+            <div class="showcase__stage" data-frame-host>
+              <div class="dim" aria-hidden="true">
+                <span class="dim__value"
+                  ><span data-showcase-width>1280</span>&nbsp;×&nbsp;<span
+                    data-showcase-height
+                    >800</span
+                  >&nbsp;px</span
+                >
+              </div>
+              <div
+                class="frame"
+                data-frame
+                data-showcase-frame
+                data-vw="1280"
+                data-vh="800"
+              >
+                <iframe
+                  src="demo/before/"
+                  title="Sabai Move Studio เวอร์ชัน Before (ก่อนแก้ไข)"
+                  data-version="before"
+                  loading="lazy"
+                ></iframe>
+                <iframe
+                  src="demo/after/"
+                  title="Sabai Move Studio เวอร์ชัน After (หลังแก้ไข)"
+                  data-version="after"
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+
+            <aside class="tasks" aria-labelledby="tasks-title">
+              <h3 id="tasks-title">ลองทำสี่อย่างนี้</h3>
+              <ol class="tasks__list">
+                <li>
+                  <p class="tasks__do">กดตัวกรอง “Pilates” ในตารางเรียน</p>
+                  <dl class="tasks__result">
+                    <div data-for="before">
+                      <dt>Before</dt>
+                      <dd>ตารางว่างทั้งหมด</dd>
+                    </div>
+                    <div data-for="after">
+                      <dt>After</dt>
+                      <dd>เหลือเฉพาะคลาส Pilates</dd>
+                    </div>
+                  </dl>
+                </li>
+                <li>
+                  <p class="tasks__do">เลือก Mobile แล้วกดปุ่มเมนู</p>
+                  <dl class="tasks__result">
+                    <div data-for="before">
+                      <dt>Before</dt>
+                      <dd>ไม่มีอะไรเกิดขึ้น</dd>
+                    </div>
+                    <div data-for="after">
+                      <dt>After</dt>
+                      <dd>เมนูเปิดได้ ปิดด้วย Esc ได้</dd>
+                    </div>
+                  </dl>
+                </li>
+                <li>
+                  <p class="tasks__do">ใช้เมาส์กดปุ่ม “ดูตารางคลาส”</p>
+                  <dl class="tasks__result">
+                    <div data-for="before">
+                      <dt>Before</dt>
+                      <dd>กดไม่ติด</dd>
+                    </div>
+                    <div data-for="after">
+                      <dt>After</dt>
+                      <dd>เลื่อนไปที่ตารางเรียน</dd>
+                    </div>
+                  </dl>
+                </li>
+                <li>
+                  <p class="tasks__do">เลือก Mobile แล้วเลื่อนดูทั้งหน้า</p>
+                  <dl class="tasks__result">
+                    <div data-for="before">
+                      <dt>Before</dt>
+                      <dd>เนื้อหาล้นจอ ต้องเลื่อนซ้ายขวา</dd>
+                    </div>
+                    <div data-for="after">
+                      <dt>After</dt>
+                      <dd>พอดีจอ อ่านได้โดยไม่ต้องซูม</dd>
+                    </div>
+                  </dl>
+                </li>
+              </ol>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section breakdown"
+        id="breakdown"
+        aria-labelledby="breakdown-title"
+      >
+        <div class="container">
+          <div class="head head--split">
+            <h2 id="breakdown-title">Six fixes, explained</h2>
+            <p class="lead">
+              แต่ละจุดอธิบายว่าเกิดอะไร ทำไมถึงเกิด และแก้อย่างไร
+              ส่วนโค้ดเปิดดูได้สำหรับคนที่อยากเห็นรายละเอียด
+            </p>
+          </div>
+
+          <div class="breakdown__grid" data-tabs>
+            <div
+              class="breakdown__tabs"
+              role="tablist"
+              aria-label="รายการที่แก้ไข"
+              aria-orientation="vertical"
+            >
+              <button
+                type="button"
+                role="tab"
+                id="tab-1"
+                aria-controls="fix-1"
+                aria-selected="true"
+              >
+                <span class="num">01</span
+                ><span>ตัวกรองคลาสทำให้รายการหายหมด</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-2"
+                aria-controls="fix-2"
+                aria-selected="false"
+              >
+                <span class="num">02</span
+                ><span>ปุ่มเมนูบนมือถือไม่ตอบสนอง</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-3"
+                aria-controls="fix-3"
+                aria-selected="false"
+              >
+                <span class="num">03</span
+                ><span>ปุ่มหลักบนหน้าแรกกดไม่ติด</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-4"
+                aria-controls="fix-4"
+                aria-selected="false"
+              >
+                <span class="num">04</span><span>หน้าเว็บล้นจอบนมือถือ</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-5"
+                aria-controls="fix-5"
+                aria-selected="false"
+              >
+                <span class="num">05</span
+                ><span>ตัวหนังสือและปุ่มเล็กเกินไป</span>
+              </button>
+              <button
+                type="button"
+                role="tab"
+                id="tab-6"
+                aria-controls="fix-6"
+                aria-selected="false"
+              >
+                <span class="num">06</span><span>สีและระยะห่างไม่เป็นระบบ</span>
+              </button>
+            </div>
+
+            <div class="breakdown__panels">
+              <article
+                class="panel"
+                role="tabpanel"
+                id="fix-1"
+                aria-labelledby="tab-1"
+                tabindex="0"
+              >
+                <h3>ตัวกรองคลาสทำให้รายการหายหมด</h3>
+                <p class="panel__group">กลุ่มงาน Bug Fix</p>
+                <dl class="fix">
+                  <div>
+                    <dt>ปัญหาเดิม</dt>
+                    <dd>
+                      กดตัวกรอง Yoga, Pilates หรือ Stretch
+                      แล้วตารางเรียนว่างเปล่า
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>สาเหตุ</dt>
+                    <dd>
+                      ปุ่มส่งค่า “Yoga” แต่แต่ละแถวเก็บค่า “yoga”
+                      โค้ดเทียบแบบตรงตัวจึงไม่มีแถวไหนผ่าน
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>วิธีแก้</dt>
+                    <dd>
+                      แปลงค่าทั้งสองฝั่งให้อยู่รูปแบบเดียวกันก่อนเทียบ
+                      และย้ายสถานะ “เลือกอยู่” ไปที่ปุ่มที่กด
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>ผลลัพธ์</dt>
+                    <dd>แสดงเฉพาะคลาสที่เลือก พร้อมบอกจำนวนคลาสที่พบ</dd>
+                  </div>
+                </dl>
+                <details>
+                  <summary>ดูโค้ดที่แก้ไข</summary>
+                  <div class="code-pair">
+                    <figure>
+                      <figcaption>
+                        Before, <code>demo/before/script.js</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>const filter = button.getAttribute("data-filter"); // "Yoga"
+button.classList.add("active");
+items.forEach((item) => {
+  if (filter === "all" ||
+      item.getAttribute("data-category") === filter) { // "yoga"
+    item.style.display = "";
+  } else {
+    item.style.display = "none";
+  }
+});</code></pre>
+                    </figure>
+                    <figure>
+                      <figcaption>
+                        After, <code>demo/after/app.js</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>export function matchesCategory(itemCategory, filter) {
+  const wanted = normalizeCategory(filter);
+  return wanted === "all" ||
+    normalizeCategory(itemCategory) === wanted;
+}
+
+session.hidden = !matchesCategory(session.dataset.category, filter);
+button.setAttribute("aria-pressed", String(button.dataset.filter === filter));</code></pre>
+                    </figure>
+                  </div>
+                </details>
+                <button class="btn" type="button" data-demo="before desktop">
+                  ลองดูใน Showcase
+                </button>
+              </article>
+
+              <article
+                class="panel"
+                role="tabpanel"
+                id="fix-2"
+                aria-labelledby="tab-2"
+                tabindex="0"
+              >
+                <h3>ปุ่มเมนูบนมือถือไม่ตอบสนอง</h3>
+                <p class="panel__group">กลุ่มงาน Bug Fix</p>
+                <dl class="fix">
+                  <div>
+                    <dt>ปัญหาเดิม</dt>
+                    <dd>
+                      บนมือถือ กดปุ่มเมนูแล้วไม่มีอะไรเกิดขึ้น
+                      ผู้ใช้ไปหน้าอื่นไม่ได้
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>สาเหตุ</dt>
+                    <dd>
+                      สคริปต์เพิ่มคลาส active แต่ CSS รอคลาส show และปุ่มเป็น
+                      div ที่คีย์บอร์ดเข้าถึงไม่ได้
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>วิธีแก้</dt>
+                    <dd>
+                      เปลี่ยนเป็นปุ่ม button ที่บอกสถานะเปิดปิด
+                      ใช้ชื่อสถานะเดียวกันทั้ง JS และ CSS
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>ผลลัพธ์</dt>
+                    <dd>
+                      เมนูเปิดปิดได้ทั้งนิ้ว เมาส์ และคีย์บอร์ด กด Esc
+                      เพื่อปิดได้
+                    </dd>
+                  </div>
+                </dl>
+                <details>
+                  <summary>ดูโค้ดที่แก้ไข</summary>
+                  <div class="code-pair">
+                    <figure>
+                      <figcaption>
+                        Before, <code>demo/before/script.js</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>&lt;div class="hamburger"&gt;&amp;#9776;&lt;/div&gt;
+
+burger.addEventListener("click", () =&gt; {
+  nav.classList.toggle("active");
+});
+/* style.css */
+.nav-links.show { display: block; }</code></pre>
+                    </figure>
+                    <figure>
+                      <figcaption>
+                        After, <code>demo/after/app.js</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>&lt;button type="button" aria-expanded="false"
+  aria-controls="site-menu"&gt;เมนู&lt;/button&gt;
+
+function setMenu(open) {
+  menuButton.setAttribute("aria-expanded", String(open));
+  menu.dataset.open = String(open);
+}
+/* styles.css */
+.site-nav[data-open="true"] { display: flex; }</code></pre>
+                    </figure>
+                  </div>
+                </details>
+                <button class="btn" type="button" data-demo="before mobile">
+                  ลองดูใน Showcase
+                </button>
+              </article>
+
+              <article
+                class="panel"
+                role="tabpanel"
+                id="fix-3"
+                aria-labelledby="tab-3"
+                tabindex="0"
+              >
+                <h3>ปุ่มหลักบนหน้าแรกกดไม่ติด</h3>
+                <p class="panel__group">กลุ่มงาน Bug Fix</p>
+                <dl class="fix">
+                  <div>
+                    <dt>ปัญหาเดิม</dt>
+                    <dd>
+                      ปุ่ม “ดูตารางคลาส” มองเห็นได้
+                      แต่ใช้เมาส์หรือนิ้วกดแล้วไม่ไปไหน
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>สาเหตุ</dt>
+                    <dd>
+                      ชั้นลายตกแต่งโปร่งใสวางทับทั้งส่วนหัวเว็บ
+                      การคลิกจึงไปโดนชั้นนั้นแทนปุ่ม
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>วิธีแก้</dt>
+                    <dd>
+                      ทำลายตกแต่งเป็นพื้นหลังที่ไม่รับการคลิก
+                      และจัดลำดับชั้นของปุ่มใหม่
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>ผลลัพธ์</dt>
+                    <dd>ปุ่มหลักกดได้ทุกอุปกรณ์ และพาไปที่ตารางเรียนทันที</dd>
+                  </div>
+                </dl>
+                <details>
+                  <summary>ดูโค้ดที่แก้ไข</summary>
+                  <div class="code-pair">
+                    <figure>
+                      <figcaption>
+                        Before, <code>demo/before/style.css</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>.hero-text { position: relative; z-index: 1; }
+.hero-overlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 3; /* covers the button */
+}</code></pre>
+                    </figure>
+                    <figure>
+                      <figcaption>
+                        After, <code>demo/after/index.html</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>&lt;!-- no overlay element: the decoration
+     is the section background --&gt;
+&lt;a class="btn btn-primary" href="#schedule"&gt;
+  ดูตารางคลาส
+&lt;/a&gt;</code></pre>
+                    </figure>
+                  </div>
+                </details>
+                <button class="btn" type="button" data-demo="before desktop">
+                  ลองดูใน Showcase
+                </button>
+              </article>
+
+              <article
+                class="panel"
+                role="tabpanel"
+                id="fix-4"
+                aria-labelledby="tab-4"
+                tabindex="0"
+              >
+                <h3>หน้าเว็บล้นจอบนมือถือ</h3>
+                <p class="panel__group">กลุ่มงาน Responsive Fix</p>
+                <dl class="fix">
+                  <div>
+                    <dt>ปัญหาเดิม</dt>
+                    <dd>
+                      บนมือถือต้องเลื่อนซ้ายขวาเพื่ออ่าน
+                      และการ์ดคลาสใบที่สามตกไปอยู่บรรทัดใหม่แม้บนจอคอม
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>สาเหตุ</dt>
+                    <dd>
+                      กล่องเนื้อหาและตารางกำหนดความกว้างตายตัว 1100 px และ 1060
+                      px ส่วนการ์ดคิดความกว้างไม่รวมขอบ
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>วิธีแก้</dt>
+                    <dd>
+                      ใช้ความกว้างสูงสุดแทนความกว้างตายตัว จัดการ์ดด้วย CSS Grid
+                      และเปลี่ยนตารางเป็นรายการบนจอเล็ก
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>ผลลัพธ์</dt>
+                    <dd>เนื้อหาพอดีทุกขนาดจอ ตั้งแต่มือถือ 375 px ถึงจอคอม</dd>
+                  </div>
+                </dl>
+                <details>
+                  <summary>ดูโค้ดที่แก้ไข</summary>
+                  <div class="code-pair">
+                    <figure>
+                      <figcaption>
+                        Before, <code>demo/before/style.css</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>.wrapper { width: 1100px; margin: 0 auto; }
+.schedule { width: 1060px; }
+.card {
+  float: left;
+  width: 340px;   /* + padding + border */
+  padding: 15px;
+}</code></pre>
+                    </figure>
+                    <figure>
+                      <figcaption>
+                        After, <code>demo/after/styles.css</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>*, *::before, *::after { box-sizing: border-box; }
+.container { width: 100%; max-width: 1120px; }
+.class-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}</code></pre>
+                    </figure>
+                  </div>
+                </details>
+                <button class="btn" type="button" data-demo="before mobile">
+                  ลองดูใน Showcase
+                </button>
+              </article>
+
+              <article
+                class="panel"
+                role="tabpanel"
+                id="fix-5"
+                aria-labelledby="tab-5"
+                tabindex="0"
+              >
+                <h3>ตัวหนังสือและปุ่มเล็กเกินไป</h3>
+                <p class="panel__group">กลุ่มงาน Responsive Fix</p>
+                <dl class="fix">
+                  <div>
+                    <dt>ปัญหาเดิม</dt>
+                    <dd>
+                      ตัวหนังสือบนมือถืออ่านยาก
+                      ปุ่มตัวกรองและลิงก์เมนูเล็กจนกดพลาดง่าย
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>สาเหตุ</dt>
+                    <dd>
+                      เนื้อหาใช้ตัวอักษร 13 px ปุ่มตัวกรอง 11 px
+                      และพื้นที่กดสูงไม่ถึง 30 px
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>วิธีแก้</dt>
+                    <dd>
+                      ตั้งขนาดตัวอักษรขั้นต่ำ 16 px และให้ทุกปุ่มสูงอย่างน้อย 44
+                      px
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>ผลลัพธ์</dt>
+                    <dd>อ่านได้โดยไม่ต้องซูม และกดถูกปุ่มตั้งแต่ครั้งแรก</dd>
+                  </div>
+                </dl>
+                <details>
+                  <summary>ดูโค้ดที่แก้ไข</summary>
+                  <div class="code-pair">
+                    <figure>
+                      <figcaption>
+                        Before, <code>demo/before/style.css</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>body { font-size: 13px; }
+.filter-btn { padding: 3px 8px; font-size: 11px; }
+.nav-links a { padding: 3px 5px; font-size: 12px; }</code></pre>
+                    </figure>
+                    <figure>
+                      <figcaption>
+                        After, <code>demo/after/styles.css</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>body { font-size: var(--text-md); } /* 16px */
+.chip { min-height: 44px; }
+.site-nav a { min-height: 44px; }</code></pre>
+                    </figure>
+                  </div>
+                </details>
+                <button class="btn" type="button" data-demo="after mobile">
+                  ดู After ใน Showcase
+                </button>
+              </article>
+
+              <article
+                class="panel"
+                role="tabpanel"
+                id="fix-6"
+                aria-labelledby="tab-6"
+                tabindex="0"
+              >
+                <h3>สีและระยะห่างไม่เป็นระบบ</h3>
+                <p class="panel__group">กลุ่มงาน UI Improvement</p>
+                <dl class="fix">
+                  <div>
+                    <dt>ปัญหาเดิม</dt>
+                    <dd>
+                      หัวข้อสำคัญไม่เด่น ปุ่มมีสามแบบ ราคาเขียนสามรูปแบบ
+                      และข้อความสีเทาอ่อนอ่านยาก
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>สาเหตุ</dt>
+                    <dd>
+                      แต่ละส่วนกำหนดสี ฟอนต์ และระยะห่างแยกกันเอง
+                      โดยไม่มีระบบกลาง
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>วิธีแก้</dt>
+                    <dd>
+                      สร้างชุดค่ากลาง (design tokens) สำหรับสี ตัวอักษร
+                      และระยะห่าง แล้วใช้ร่วมกันทั้งหน้า
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>ผลลัพธ์</dt>
+                    <dd>
+                      ทั้งเว็บดูเป็นชุดเดียวกัน และสีตัวอักษรตัดกับพื้นตามเกณฑ์
+                      WCAG AA
+                    </dd>
+                  </div>
+                </dl>
+                <details>
+                  <summary>ดูโค้ดที่แก้ไข</summary>
+                  <div class="code-pair">
+                    <figure>
+                      <figcaption>
+                        Before, <code>demo/before/style.css</code>
+                      </figcaption>
+                      <pre
+                        class="code"
+                        tabindex="0"
+                      ><code>.hero .sub   { color: #9aa7a5; }
+.price.big   { font-size: 26px; color: #d63031; }
+.btn-main    { background: #ff9f43; border-radius: 20px; }
+.btn2        { background: linear-gradient(#ff7675, #d63031); }</code></pre>
+                    </figure>
+                    <figure>
+                      <figcaption>
+                        After, <code>demo/after/styles.css</code>
+                      </figcaption>
+                      <pre class="code" tabindex="0"><code>:root {
+  --brand: oklch(46% 0.085 186);
+  --ink-muted: oklch(43% 0.02 200);
+  --radius-sm: 8px;
+  --control: 48px;
+}
+.btn { min-height: var(--control); border-radius: var(--radius-sm); }</code></pre>
+                    </figure>
+                  </div>
+                </details>
+                <button class="btn" type="button" data-demo="after desktop">
+                  ดู After ใน Showcase
+                </button>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section sheet-light services"
+        id="services"
+        aria-labelledby="services-title"
+      >
+        <div class="container">
+          <div class="head head--split">
+            <h2 id="services-title">Three packages, priced by scope</h2>
+            <p class="lead">
+              ราคาเริ่มต้นตามแพ็กเกจบน Fastwork
+              ราคาสุดท้ายขึ้นอยู่กับขอบเขตงานและสภาพโค้ดเดิม
+              และจะแจ้งก่อนเริ่มงานเสมอ
+            </p>
+          </div>
+          <table class="register">
+            <thead>
+              <tr>
+                <th scope="col">แพ็กเกจ</th>
+                <th scope="col">เหมาะกับ</th>
+                <th scope="col">สิ่งที่ทำให้</th>
+                <th scope="col" class="register__price-head">ราคาเริ่มต้น</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="register__name">Bug Fix</th>
+                <td data-label="เหมาะกับ">
+                  ปุ่ม ฟอร์ม เมนู หรือสคริปต์ที่ทำงานผิดพลาด
+                </td>
+                <td data-label="สิ่งที่ทำให้">
+                  หาสาเหตุ แก้เฉพาะจุด ทดสอบซ้ำ และสรุปสิ่งที่แก้
+                </td>
+                <td class="register__price" data-label="ราคาเริ่มต้น">฿800</td>
+              </tr>
+              <tr>
+                <th scope="row" class="register__name">Responsive Fix</th>
+                <td data-label="เหมาะกับ">
+                  เว็บที่แสดงผลเพี้ยนหรือล้นจอบนมือถือและแท็บเล็ต
+                </td>
+                <td data-label="สิ่งที่ทำให้">
+                  ปรับเลย์เอาต์ ตัวอักษร และปุ่มให้ใช้ได้บนมือถือ แท็บเล็ต
+                  และจอคอม
+                </td>
+                <td class="register__price" data-label="ราคาเริ่มต้น">
+                  ฿1,500
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" class="register__name">UI Improvement</th>
+                <td data-label="เหมาะกับ">
+                  เว็บที่ใช้งานได้แต่ดูเก่า อ่านยาก หรือไม่เป็นชุดเดียวกัน
+                </td>
+                <td data-label="สิ่งที่ทำให้">
+                  จัดระบบสี ตัวอักษร ระยะห่าง และปุ่ม โดยคงเนื้อหาเดิมไว้
+                </td>
+                <td class="register__price" data-label="ราคาเริ่มต้น">
+                  ฿2,500
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section
+        class="section process"
+        id="process"
+        aria-labelledby="process-title"
+      >
+        <div class="container">
+          <div class="head">
+            <h2 id="process-title">From inspection to handover</h2>
+          </div>
+          <ol class="stages">
+            <li>
+              <h3>Inspect</h3>
+              <p>ตรวจเว็บไซต์เดิมบนหลายขนาดจอ และอ่านโค้ดส่วนที่เกี่ยวข้อง</p>
+            </li>
+            <li>
+              <h3>Reproduce</h3>
+              <p>ระบุปัญหาและทำให้เกิดซ้ำได้ เพื่อยืนยันสาเหตุก่อนแก้</p>
+            </li>
+            <li>
+              <h3>Fix</h3>
+              <p>แก้ตรงจุดที่เป็นสาเหตุ ไม่รื้อส่วนที่ทำงานดีอยู่แล้ว</p>
+            </li>
+            <li>
+              <h3>Test</h3>
+              <p>ทดสอบซ้ำบนอุปกรณ์และเบราว์เซอร์ที่เกี่ยวข้อง</p>
+            </li>
+            <li>
+              <h3>Deliver</h3>
+              <p>ส่งโค้ดที่แก้แล้ว พร้อมสรุปรายการที่เปลี่ยน</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="container contact__grid">
+          <h2 id="contact-title">Send me the link</h2>
+          <div class="contact__body">
+            <p class="lead">
+              ส่งลิงก์เว็บไซต์และอาการที่พบมาทาง Fastwork เพื่อขอให้ตรวจเว็บไซต์
+              แล้วรับขอบเขตงานและราคาก่อนเริ่ม
+            </p>
+            <!-- CONFIG: replace href="#contact" with your Fastwork profile or gig URL. -->
+            <a class="btn btn--primary" href="#contact" data-fastwork-link
+              >คุยงานผ่าน Fastwork</a
+            >
+            <p class="contact__note">
+              <span class="fill"
+                >ยังไม่ได้ใส่ลิงก์โปรไฟล์ Fastwork (แก้ใน site/index.html)</span
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <p class="footer__colophon">
+          <strong>Website Rescue</strong> เป็นโปรเจกต์สาธิตงานดูแลเว็บไซต์
+          ไม่ใช่ผลงานลูกค้าจริง Sabai Move Studio ในเดโมเป็นธุรกิจสมมติ
+          ข้อมูลทั้งหมดเป็นตัวอย่าง สร้างด้วย HTML, CSS และ JavaScript ล้วน
+          ฟอนต์ Chakra Petch, IBM Plex Sans Thai และ IBM Plex Mono
+          ใช้สัญญาอนุญาต SIL Open Font License
+        </p>
+        <nav class="footer__links" aria-label="ลิงก์ท้ายหน้า">
+          <a href="#showcase">Showcase</a>
+          <a href="#breakdown">Fix breakdown</a>
+          <a href="#services">แพ็กเกจ</a>
+          <a href="demo/before/">เปิด Before เต็มจอ</a>
+          <a href="demo/after/">เปิด After เต็มจอ</a>
+        </nav>
+        <p class="footer__legal">
+          © <span data-year>2026</span> Website Rescue
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

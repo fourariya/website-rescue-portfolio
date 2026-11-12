@@ -1,0 +1,53 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "site/demo/before/index.html"
+        ],
+        "createdAt": "2026-11-12T12:48:58.409Z",
+        "reason": "Claude: intentional defect in the BEFORE demo of a fictional site; the brief requires genuine, reproducible problems isolated to site/demo/before/"
+      },
+      {
+        "rule": "tiny-text",
+        "value": "*",
+        "files": [
+          "site/demo/before/index.html"
+        ],
+        "createdAt": "2026-11-12T12:48:58.651Z",
+        "reason": "Claude: intentional defect in the BEFORE demo of a fictional site; the brief requires genuine, reproducible problems isolated to site/demo/before/"
+      },
+      {
+        "rule": "skipped-heading",
+        "value": "*",
+        "files": [
+          "site/demo/before/index.html"
+        ],
+        "createdAt": "2026-11-12T12:48:58.907Z",
+        "reason": "Claude: intentional defect in the BEFORE demo of a fictional site; the brief requires genuine, reproducible problems isolated to site/demo/before/"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "site/demo/after/index.html"
+        ],
+        "createdAt": "2026-11-12T12:48:59.165Z",
+        "reason": "Claude: false positive; sections get 24px inline padding from .container and 64px block padding (verified in rendered screenshots)"
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "site/demo/after/index.html"
+        ],
+        "createdAt": "2026-11-12T13:05:14.019Z",
+        "reason": "Claude: false positive; rendered audit in Chrome found no text under 1.3x, only single-line 44px controls (.chip, .menu-button) at line-height 1"
+      }
+    ]
+  }
+}
